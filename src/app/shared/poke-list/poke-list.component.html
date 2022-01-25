@@ -1,74 +1,15 @@
-<a class="pokemon">
-  <section class="pokemon__status">
-    <h2>Bulbassaour</h2>
-    <ul>
-      <li>grass</li>
-      <li>tank</li>
-    </ul>
-  </section>
-  <section class="pokemon__image">
-    <img style="max-width: 100px;" src="https://img.joomcdn.net/32bd764d8b970d453c4efac20d566aa2e993fc9f_original.jpeg" alt="Bulbassaour">
-  </section>
-</a>
-
-<a class="pokemon">
-  <section class="pokemon__status">
-    <h2>Bulbassaour</h2>
-    <ul>
-      <li>grass</li>
-      <li>tank</li>
-    </ul>
-  </section>
-  <section class="pokemon__image">
-    <img style="max-width: 100px;" src="https://img.joomcdn.net/32bd764d8b970d453c4efac20d566aa2e993fc9f_original.jpeg" alt="Bulbassaour">
-  </section>
-</a>
-
-<a class="pokemon">
-  <section class="pokemon__status">
-    <h2>Bulbassaour</h2>
-    <ul>
-      <li>grass</li>
-      <li>tank</li>
-    </ul>
-  </section>
-  <section class="pokemon__image">
-    <img style="max-width: 100px;" src="https://img.joomcdn.net/32bd764d8b970d453c4efac20d566aa2e993fc9f_original.jpeg" alt="Bulbassaour">
-  </section>
-</a>
-<a class="pokemon">
-  <section class="pokemon__status">
-    <h2>Bulbassaour</h2>
-    <ul>
-      <li>grass</li>
-      <li>tank</li>
-    </ul>
-  </section>
-  <section class="pokemon__image">
-    <img style="max-width: 100px;" src="https://img.joomcdn.net/32bd764d8b970d453c4efac20d566aa2e993fc9f_original.jpeg" alt="Bulbassaour">
-  </section>
-</a>
-<a class="pokemon">
-  <section class="pokemon__status">
-    <h2>Bulbassaour</h2>
-    <ul>
-      <li>grass</li>
-      <li>tank</li>
-    </ul>
-  </section>
-  <section class="pokemon__image">
-    <img style="max-width: 100px;" src="https://img.joomcdn.net/32bd764d8b970d453c4efac20d566aa2e993fc9f_original.jpeg" alt="Bulbassaour">
-  </section>
-</a>
-<a class="pokemon">
-  <section class="pokemon__status">
-    <h2>Bulbassaour</h2>
-    <ul>
-      <li>grass</li>
-      <li>tank</li>
-    </ul>
-  </section>
-  <section class="pokemon__image">
-    <img style="max-width: 100px;" src="https://img.joomcdn.net/32bd764d8b970d453c4efac20d566aa2e993fc9f_original.jpeg" alt="Bulbassaour">
-  </section>
-</a>
+<ng-template [ngFor] let-pokemon [ngForOf]="getAllPokemons">
+  <a [routerLink]="['details', pokemon.status.id]" class="pokemon" *ngIf="pokemon.status" >
+    <section class="pokemon__status">
+      <h2>{{pokemon.name}} </h2>
+      <ul>
+        <li *ngFor="let value of pokemon.status.types">
+          {{value.type.name}}
+        </li>
+      </ul>
+    </section>
+    <section class="pokemon__image">
+      <img [src]="pokemon.status.sprites.front_default" alt="Bulbassaour">
+    </section>
+  </a>
+</ng-template>
