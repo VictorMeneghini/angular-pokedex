@@ -12,4 +12,9 @@ main {
   max-width: rem-calc(600);
   margin: 0 auto;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    max-width: rem-calc(400);
+  }
 }
