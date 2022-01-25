@@ -1,0 +1,4 @@
+<img class="floating" *ngIf="!isPlaying; else elseBlock" (click)="playSound()" src="../../../assets/icons/sound-play.svg" alt="">
+<ng-template #elseBlock>
+  <img class="floating" (click)="pauseSound()" src="../../../assets/icons/sound-pause.svg" alt="">
+</ng-template>
