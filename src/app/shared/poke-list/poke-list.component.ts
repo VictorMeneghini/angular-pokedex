@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { PokeApiService } from 'src/app/service/poke-api.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
 export class PokeListComponent implements OnInit {
   public getAllPokemons: any;
   private setAllPokemons: any;
+  private currentLimit: number = 30
+  private currentOffSet: number = 0
 
   constructor(
     private pokeApiService:PokeApiService
@@ -16,7 +18,7 @@ export class PokeListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.pokeApiService.apiListAllPokemons.subscribe(res => {
+    this.pokeApiService.apiListAllPokemons(this.currentOffSet, this.currentLimit).subscribe(res => {
       this.setAllPokemons = res.results
       this.getAllPokemons = this.setAllPokemons
       
@@ -29,6 +31,24 @@ export class PokeListComponent implements OnInit {
     })
 
     this.getAllPokemons = filter
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event:any) {
+
+    let screenHeight = document.documentElement.scrollHeight
+    let currentScrollPosition = document.documentElement.scrollTop + document.documentElement.clientHeight;
+    
+    if(currentScrollPosition == screenHeight )   {
+      this.currentOffSet += this.currentLimit 
+      
+      this.pokeApiService.apiListAllPokemons(this.currentOffSet, this.currentLimit).subscribe(res => {
+        res.results.forEach((element:any) => {
+          this.getAllPokemons.push(element)
+        });    
+      });
+    }
+    
   }
 
 }

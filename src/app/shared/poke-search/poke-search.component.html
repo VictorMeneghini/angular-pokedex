@@ -1,4 +1,4 @@
-<form>
+<form (submit)="$event.preventDefault()">
   <input type="text" #input (keyup)="search(input.value)" placeholder="Find a Pokemon!">
   <img src="assets/icons/search.svg" alt="Find pokemon...">
 </form>

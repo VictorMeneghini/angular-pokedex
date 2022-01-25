@@ -3,7 +3,7 @@
 
 <main>
 
-  <div *ngIf="isLoading; else elseBlock">
+  <div *ngIf="isLoading">
     <section class="pokemon__names">
       <h1 class="slideInLeft">{{pokemon[0].name}}</h1>
       <h2 class="slideInRight">{{pokemon[1].names[0].name}}</h2>
@@ -32,20 +32,24 @@
         </section>
 
         <a [routerLink]="['']" class="btn btn__secondary">
-          Voltar
+          Back
         </a>
       </article>
     </section>
   </div>
 
-  <ng-template #elseBlock>
-    <app-poke-loading></app-poke-loading>
-  </ng-template>
-
-  <img
+  
+  <app-poke-loading *ngIf="!isLoading && !apiError"></app-poke-loading>
+ 
+    <section *ngIf="apiError">
+    <img
     src="assets/error.png"
     alt="Deu erro na mostragem do pokemon"
     width="100%"
-    *ngIf="apiError"
   >
+  <a [routerLink]="['']" class="btn btn__secondary">
+    Back
+  </a>
+  </section>
+  
 </main>
