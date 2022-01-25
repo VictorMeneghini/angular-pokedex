@@ -6,12 +6,14 @@ import { PokeHeaderComponent } from './poke-header/poke-header.component';
 import { PokeSearchComponent } from './poke-search/poke-search.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { RouterModule } from '@angular/router';
+import { PokeLoadingComponent } from './poke-loading/poke-loading.component';
 
 @NgModule({
   declarations: [
     PokeHeaderComponent,
     PokeSearchComponent,
-    PokeListComponent
+    PokeListComponent,
+    PokeLoadingComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     PokeHeaderComponent,
     PokeListComponent,
-    PokeSearchComponent
+    PokeSearchComponent,
+    PokeLoadingComponent
   ]
 })
 export class SharedModule { }
