@@ -9,7 +9,7 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
 export class PokeListComponent implements OnInit {
   public getAllPokemons: any;
   private setAllPokemons: any;
-  private currentLimit: number = 30
+  private currentLimit: number = 200
   private currentOffSet: number = 0
 
   constructor(
