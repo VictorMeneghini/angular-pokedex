@@ -22,4 +22,13 @@ describe('PokeSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit input text with right value', () => {
+    const componenteSpy = spyOn(component.emmitSearch, 'emit')
+    
+    const inputValue = 'hello world';
+    component.search(inputValue);
+
+    expect(componenteSpy).toHaveBeenCalledWith("hello world")
+  });
 });

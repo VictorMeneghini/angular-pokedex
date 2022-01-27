@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from "@angular/router/testing";
 
 import { PokeListComponent } from './poke-list.component';
 
@@ -8,7 +10,11 @@ describe('PokeListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokeListComponent ]
+      declarations: [ PokeListComponent ],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule
+      ],
     })
     .compileComponents();
   });
@@ -19,7 +25,8 @@ describe('PokeListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () => {  
     expect(component).toBeTruthy();
   });
+  
 });
