@@ -17,20 +17,9 @@ jobs:
       - run: npm install
       - run: npm run test:github-actions
 
-  deploy-dev:
-    runs-on: ubuntu-latest
-    environment:
-      name: development
-      url: 'https://www.poke-dex.victormeneghini.com/'
-    needs: ['teste']
-
-    steps:
-      - name: Run a one-line script
-        run: echo deploy in development
-
   open-merge-request-prod:
     runs-on: ubuntu-latest
-    needs: ['deploy-dev']
+    needs: ['teste']
 
     steps:
       - uses: actions/checkout@v2
