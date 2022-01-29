@@ -124,6 +124,14 @@
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 5px;
+
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    animation-duration: 0s;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
 }
 
 @keyframes floating {

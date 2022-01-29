@@ -1,10 +1,22 @@
 @import'../../../config-scss/rem-calc.scss';
 
 :host {
-  header {
+  .header {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: rem-calc(40) 0;
+
+    &__button-audio {
+      width: 33%;
+    }
+
+    &__logo-wrapper {
+      width: 66%;
+
+      img {
+        max-width: rem-calc(180);
+      }
+    }
   }
 }
