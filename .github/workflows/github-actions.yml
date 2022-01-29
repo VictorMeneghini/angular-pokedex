@@ -1,4 +1,4 @@
-name: Unit tests
+name: development-flows
 on: [push]
 jobs:
 
@@ -38,4 +38,5 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "main"
+          title: "Update main branch"
           github_token: ${{ secrets.GITHUB_TOKEN }}
