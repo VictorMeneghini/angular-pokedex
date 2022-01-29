@@ -1,12 +1,8 @@
 :host {
-  position: fixed;
-  top: 15%;
-  left: 15%;
+  position: relative;
 
   img {
-    width: 100px;
-    position: absolute;
-    left: 100px;
+    width: 50px;
     cursor: pointer;
   }
 }
