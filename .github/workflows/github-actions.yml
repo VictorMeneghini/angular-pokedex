@@ -19,8 +19,9 @@ jobs:
 
   deploy-dev:
     runs-on: ubuntu-latest
-    enviroment: development
-    url: 'https://www.poke-dex.victormeneghini.com/'
+    enviroment:
+      name: development
+      url: 'https://www.poke-dex.victormeneghini.com/'
     needs: ['teste']
 
     steps:
@@ -29,8 +30,9 @@ jobs:
 
   deploy-prod:
     runs-on: ubuntu-latest
-    enviroment: development
-    url: 'https://www.poke-dex.victormeneghini.com/'
+    enviroment: production
+      name: production
+      url: 'https://www.poke-dex.victormeneghini.com/'
     needs: ['deploy-dev']
 
     steps:
