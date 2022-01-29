@@ -1,0 +1,38 @@
+name: Unit tests
+on: [push]
+jobs:
+
+  teste:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run test:github-actions
+
+  deploy-dev:
+    runs-on: ubuntu-latest
+    enviroment: development
+    url: 'https://www.poke-dex.victormeneghini.com/'
+    needs: ['teste']
+
+    steps:
+      - name: Run a one-line script
+        run: echo deploy in development
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    enviroment: development
+    url: 'https://www.poke-dex.victormeneghini.com/'
+    needs: ['deploy-dev']
+
+    steps:
+      - name: Run a one-line script
+        run: echo deploy in production
