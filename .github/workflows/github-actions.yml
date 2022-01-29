@@ -28,13 +28,14 @@ jobs:
       - name: Run a one-line script
         run: echo deploy in development
 
-  deploy-prod:
+  open-merge-request-prod:
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: 'https://www.poke-dex.victormeneghini.com/'
     needs: ['deploy-dev']
 
     steps:
-      - name: Run a one-line script
-        run: echo deploy in production
+      - uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
