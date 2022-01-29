@@ -1,0 +1,31 @@
+name: development-flows
+on: [push]
+jobs:
+
+  teste:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run test:github-actions
+
+  open-merge-request-prod:
+    runs-on: ubuntu-latest
+    needs: ['teste']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
+          title: "Update main branch"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
