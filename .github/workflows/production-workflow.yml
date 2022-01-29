@@ -5,7 +5,7 @@ on:
       - main
 jobs:
 
-  teste:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,7 +25,7 @@ jobs:
     environment:
       name: production
       url: 'https://www.poke-dex.victormeneghini.com/'
-    needs: ['teste']
+    needs: ['test']
 
     steps:
       - name: Deploying...
