@@ -19,7 +19,7 @@ jobs:
 
   deploy-dev:
     runs-on: ubuntu-latest
-    enviroment:
+    environment:
       name: development
       url: 'https://www.poke-dex.victormeneghini.com/'
     needs: ['teste']
@@ -30,7 +30,7 @@ jobs:
 
   deploy-prod:
     runs-on: ubuntu-latest
-    enviroment: production
+    environment:
       name: production
       url: 'https://www.poke-dex.victormeneghini.com/'
     needs: ['deploy-dev']
