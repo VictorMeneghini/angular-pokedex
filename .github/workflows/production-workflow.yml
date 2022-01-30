@@ -20,7 +20,7 @@ jobs:
       - run: npm install
       - run: npm run test:github-actions
 
-  deploy-dev:
+  deploy-production:
     runs-on: ubuntu-latest
     environment:
       name: production
