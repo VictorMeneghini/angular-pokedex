@@ -7,14 +7,18 @@
     <section class="login-form__header">
       <h2>Login</h2>
     </section>
-    <form action="" class="login-form__form-wrapper">
+    <form 
+      class="login-form__form-wrapper"
+      [formGroup]="loginFormGroup"
+      (ngSubmit)="onSubmit()"
+      id="loginFormGroup">
       <div class="login-form__form-wrapper__item">
-        <input id="name" type="text" required />
+        <input id="name" type="text" required formControlName="username" />
         <label class="label" for="name">Name</label>
       </div>
 
       <div class="login-form__form-wrapper__item">
-        <input id="password" type="password"required />
+        <input id="password" type="password"required  required formControlName="password"/>
         <label class="label" for="password">Password</label>
       </div>
 
