@@ -1,0 +1,39 @@
+<main>
+  <div class="signup-form">   
+    <section class="signup-form__header">
+      <h2>Signup</h2>
+    </section>
+    <form 
+      class="signup-form__form-wrapper"
+      [formGroup]="signUpFormGroup"
+      (ngSubmit)="onSubmit()"
+      id="signUpFormGroup">
+      <div class="signup-form__form-wrapper__item">
+        <input id="name" type="text" required formControlName="username" />
+        <label class="label" for="name">Name</label>
+      </div>
+
+      <div class="signup-form__form-wrapper__item">
+        <input id="password" type="password"required formControlName="password"/>
+        <label class="label" for="password">Password</label>
+      </div>
+
+      <div class="signup-form__form-wrapper__item__checkbox">
+        <input 
+          id="terms"
+          type="checkbox"
+          required
+          formControlName="terms"
+          class="signup-form__form-wrapper__item__checkbox"/>
+        <span>
+          I promise to treat all pokemons with lots of love and affection
+        </span>
+      </div>
+
+      <button class="btn btn__secondary">Create account</button>
+      <a [routerLink]="['/login']">Login</a>
+    </form>
+    <img 
+    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg" alt="Mankey">
+  </div>
+</main>
