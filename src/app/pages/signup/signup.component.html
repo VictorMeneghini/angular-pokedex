@@ -1,30 +1,30 @@
 <main>
-  <div class="login-form">   
-    <section class="login-form__header">
+  <div class="signup-form">   
+    <section class="signup-form__header">
       <h2>Signup</h2>
     </section>
     <form 
-      class="login-form__form-wrapper"
+      class="signup-form__form-wrapper"
       [formGroup]="signUpFormGroup"
       (ngSubmit)="onSubmit()"
-      id="loginFormGroup">
-      <div class="login-form__form-wrapper__item">
+      id="signUpFormGroup">
+      <div class="signup-form__form-wrapper__item">
         <input id="name" type="text" required formControlName="username" />
         <label class="label" for="name">Name</label>
       </div>
 
-      <div class="login-form__form-wrapper__item">
+      <div class="signup-form__form-wrapper__item">
         <input id="password" type="password"required formControlName="password"/>
         <label class="label" for="password">Password</label>
       </div>
 
-      <div class="login-form__form-wrapper__item__checkbox">
+      <div class="signup-form__form-wrapper__item__checkbox">
         <input 
           id="terms"
           type="checkbox"
           required
           formControlName="terms"
-          class="login-form__form-wrapper__item__checkbox"/>
+          class="signup-form__form-wrapper__item__checkbox"/>
         <span>
           I promise to treat all pokemons with lots of love and affection
         </span>
