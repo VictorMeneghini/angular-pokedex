@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { FormBuilder } from '@angular/forms';
+=======
+import { FormBuilder, Validators } from '@angular/forms';
+>>>>>>> cd4159faee7bceec85077cbecc9586d59652b305
 
 @Component({
   selector: 'app-signup',
