@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "npm run set:env && ng s",
     "set:env": "node --loader ts-node/esm ./set-env.ts",
-    "build": "ng build",
+    "build": "npm run set:env && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:github-actions": "npm test -- --watch=false --browsers=ChromeHeadless"
