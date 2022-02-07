@@ -1,16 +1,14 @@
 import { writeFile } from 'fs';
 import * as dotenv from 'dotenv';
 
-// Configure Angular `environment.ts` file path
-const targetPath = './src/environments/environment.local.ts';
-
-// Load node modules
-// require('dotenv').load();
 dotenv.config();
-console.log(process.env)
-// `environment.ts` file structure
+
+const isProduction = process.env['ENVIRONMENT'] == "production" ? true : false;
+
+const targetPath = `./src/environments/environment.${isProduction ? 'prod' : 'local'}.ts`;
+
 const envConfigFile = `export const environment = {
-  production: false,
+  production: ${isProduction},
   firebaseConfig: {
     apiKey: '${process.env['API_KEY'] || ""}',
     authDomain: '${process.env['AUTH_DOMAIN'] || ""}',
