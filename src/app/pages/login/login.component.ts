@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -10,8 +11,13 @@ import { AuthService } from 'src/app/service/auth.service';
 export class LoginComponent implements OnInit {
 
   public loginFormGroup: any;
+  public loadingButton: boolean = true
+  public buttonIsDisabled: boolean = false  
 
-  constructor(private formBuilder: FormBuilder, public authService: AuthService) { }
+  constructor(
+    public authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.initLoginForm();
@@ -19,17 +25,25 @@ export class LoginComponent implements OnInit {
 
   private initLoginForm() {
     this.loginFormGroup = this.formBuilder.group({
-      username: [null],
-      password:  [null],
+      username: [null, Validators.required],
+      password:  [null, Validators.required],
     });
   }
 
   public onSubmit() {
-    console.log('On submit', {
-      username: this.loginFormGroup.value.username,
-      password: this.loginFormGroup.value.password
-    })
-
-    this.authService.signIn(this.loginFormGroup.value.username, this.loginFormGroup.value.password)
+    const {username, password} = this.loginFormGroup.value
+    console.log(this.loginFormGroup)
+    this.buttonIsDisabled = true;
+    this.loadingButton = false
+    
+    this.authService.signIn(username, password)
+      .then(() => {
+        this.router.navigate([''])
+      })
+      .catch((error) => {
+        this.buttonIsDisabled = false;
+        this.loadingButton = true
+        console.log(error);
+      })
   }
 }

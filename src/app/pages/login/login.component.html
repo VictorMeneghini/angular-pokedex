@@ -22,8 +22,13 @@
         <label class="label" for="password">Password</label>
       </div>
 
-      <button class="btn btn__secondary">Login</button>
-      <a [routerLink]="['/signup']" >Sign up</a>
+      <button class="btn btn__secondary" [disabled]="buttonIsDisabled">
+        <span *ngIf="loadingButton; else elseBlock">Login</span>
+        <ng-template #elseBlock>
+          <app-poke-loading size="small"></app-poke-loading>
+        </ng-template>
+      </button>
+      <a [routerLink]="['/signup']">Sign up</a>
     </form>
     <img 
     class="login-form__img-login login-form__img-login--bottom"
