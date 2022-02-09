@@ -24,4 +24,9 @@
 		color: var(--white);
 		background: var(--secondary-color);
 	}
+
+  &:disabled {
+    background: var(--grey);
+    color: var(--primary-color);
+  }
 }
