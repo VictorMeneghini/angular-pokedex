@@ -30,7 +30,12 @@
         </span>
       </div>
 
-      <button class="btn btn__secondary">Create account</button>
+      <button class="btn btn__secondary" [disabled]="buttonIsDisabled || signUpFormGroup.status == 'INVALID'">
+        <span *ngIf="loadingButton; else elseBlock">Create account</span>
+        <ng-template #elseBlock>
+          <app-poke-loading size="small"></app-poke-loading>
+        </ng-template>
+      </button>
       <a [routerLink]="['/login']">Login</a>
     </form>
     <img 

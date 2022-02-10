@@ -1,0 +1,14 @@
+<div 
+  *ngIf="showNotification"
+  [ngClass]="{
+    'notification': true,
+    'notification--success': notificationType == 'success'? true : false,
+    'notification--error':  notificationType == 'error'? true : false,
+    'slideInRight': showNotification ? true : false
+  }">
+  <header>{{title}}</header>
+  <section>
+   {{message}}
+  </section>
+
+</div>

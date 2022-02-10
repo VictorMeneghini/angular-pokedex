@@ -1,0 +1,39 @@
+@import'../../../config-scss/rem-calc.scss';
+
+:host {
+  .notification {
+    position: absolute;
+    top: rem-calc(30);
+    right: rem-calc(10);
+
+    z-index: 999;
+
+    width: rem-calc(380);
+    min-height: rem-calc(100);
+    
+    background-color: var(--error-color);
+    border-radius: rem-calc(10);
+
+    &--success {
+      background-color: var(--success-color);
+    }
+
+    &--error {
+      background-color: var(--error-color);
+    }
+
+    header {
+      color: var(--white);
+      font-weight: 700;
+      font-size: rem-calc(19);
+      margin: 1rem 2rem;
+    }
+
+    section {
+      color: var(--white);
+      font-weight: 400;
+      font-size: rem-calc(17);
+      margin: 0 2rem 1rem 2rem;
+    }
+  }
+}

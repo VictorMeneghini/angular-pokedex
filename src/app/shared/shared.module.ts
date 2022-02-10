@@ -8,6 +8,7 @@ import { PokeListComponent } from './poke-list/poke-list.component';
 import { RouterModule } from '@angular/router';
 import { PokeLoadingComponent } from './poke-loading/poke-loading.component';
 import { AudioButtonComponent } from './audio-button/audio-button.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AudioButtonComponent } from './audio-button/audio-button.component';
     PokeSearchComponent,
     PokeListComponent,
     PokeLoadingComponent,
-    AudioButtonComponent
+    AudioButtonComponent,
+    NotificationComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { AudioButtonComponent } from './audio-button/audio-button.component';
     PokeListComponent,
     PokeSearchComponent,
     PokeLoadingComponent,
-    AudioButtonComponent
+    AudioButtonComponent,
+    NotificationComponent
   ]
 })
 export class SharedModule { }
