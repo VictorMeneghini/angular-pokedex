@@ -32,7 +32,6 @@ export class AudioButtonComponent implements OnInit {
   }
 
   private pauseSound() {
-    console.log(this.audio.duration)
     this.audio.pause()
     this.imageButtonPath = "./../../assets/icons/sound-play.svg"
     this.isPlaying = false
