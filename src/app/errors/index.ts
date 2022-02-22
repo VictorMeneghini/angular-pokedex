@@ -4,5 +4,6 @@ export const BAD_REQUESTS_ERROR: any = {
   "auth/user-not-found": "Sorry, we couldn't find any pokemon trainers with this email",
   "auth/wrong-password": "Oops, check if your password is correct and try again (:",
   "auth/invalid-email": "Please provide a valid email address",
+  "auth/weak-password": "Hey, it would be nice to provide a stronger password. Use at least 6 characters",
   "generic-error": "Sorry but something went wrong, please check your credentials and try again"
 }

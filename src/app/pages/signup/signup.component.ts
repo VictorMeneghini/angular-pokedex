@@ -53,10 +53,11 @@ export class SignupComponent implements OnInit {
           })
           this.router.navigate(['login'])
         })
-        .catch((error) => {          
+        .catch((error) => {
+          console.log(error)
           this.notification.error({
             title: 'Wait a moment!',
-            message: BAD_REQUESTS_ERROR[error.code] || BAD_REQUESTS_ERROR['generic-error']
+            message: BAD_REQUESTS_ERROR[error.code] || error.message
           })
           this.loadingButton = true
           this.buttonIsDisabled = false;
